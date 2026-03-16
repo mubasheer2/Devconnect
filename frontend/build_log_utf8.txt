@@ -1,0 +1,141 @@
+﻿
+> frontend@0.0.0 build
+> vite build
+
+[36mvite v6.3.3 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 43 modules transformed.
+node.exe : 
+[31mΓ£ù[39m Build 
+failed in 1.50s
+At C:\Program Files\n
+odejs\npm.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: ([31mΓ£   
+ ù[39m Build fai    
+led in 1.50s:Str    
+ing) [], RemoteE    
+xception
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+[31merror during 
+build:
+[31m[vite:css] 
+[postcss] C:/Users/sk
+mub/Downloads/streami
+fy-video-calls-master
+/streamify-video-call
+s-master/frontend/src
+/index.css:200:5: 
+The 
+`focus:ring-ring` 
+class does not 
+exist. If 
+`focus:ring-ring` is 
+a custom class, make 
+sure it is defined 
+within a `@layer` 
+directive.[31m
+file: [36mC:/Users/s
+kmub/Downloads/stream
+ify-video-calls-maste
+r/streamify-video-cal
+ls-master/frontend/sr
+c/index.css:200:4[31
+m
+    at Input.error (C
+:\Users\skmub\Downloa
+ds\streamify-video-ca
+lls-master\streamify-
+video-calls-master\fr
+ontend\node_modules\p
+ostcss\lib\input.js:1
+13:16)
+    at AtRule.error (
+C:\Users\skmub\Downlo
+ads\streamify-video-c
+alls-master\streamify
+-video-calls-master\f
+rontend\node_modules\
+postcss\lib\node.js:1
+49:32)
+    at processApply (
+C:\Users\skmub\Downlo
+ads\streamify-video-c
+alls-master\streamify
+-video-calls-master\f
+rontend\node_modules\
+tailwindcss\lib\lib\e
+xpandApplyAtRules.js:
+380:29)
+    at C:\Users\skmub
+\Downloads\streamify-
+video-calls-master\st
+reamify-video-calls-m
+aster\frontend\node_m
+odules\tailwindcss\li
+b\lib\expandApplyAtRu
+les.js:551:9
+    at C:\Users\skmub
+\Downloads\streamify-
+video-calls-master\st
+reamify-video-calls-m
+aster\frontend\node_m
+odules\tailwindcss\li
+b\processTailwindFeat
+ures.js:55:50
+    at async plugins 
+(C:\Users\skmub\Downl
+oads\streamify-video-
+calls-master\streamif
+y-video-calls-master\
+frontend\node_modules
+\tailwindcss\lib\plug
+in.js:38:17)
+    at async 
+LazyResult.runAsync (
+C:\Users\skmub\Downlo
+ads\streamify-video-c
+alls-master\streamify
+-video-calls-master\f
+rontend\node_modules\
+postcss\lib\lazy-resu
+lt.js:293:11)
+    at async 
+runPostCSS (file:///C
+:/Users/skmub/Downloa
+ds/streamify-video-ca
+lls-master/streamify-
+video-calls-master/fr
+ontend/node_modules/v
+ite/dist/node/chunks/
+dep-BMIURPaQ.js:43776
+:21)
+    at async 
+compilePostCSS (file:
+///C:/Users/skmub/Dow
+nloads/streamify-vide
+o-calls-master/stream
+ify-video-calls-maste
+r/frontend/node_modul
+es/vite/dist/node/chu
+nks/dep-BMIURPaQ.js:4
+3746:18)
+    at async 
+compileCSS (file:///C
+:/Users/skmub/Downloa
+ds/streamify-video-ca
+lls-master/streamify-
+video-calls-master/fr
+ontend/node_modules/v
+ite/dist/node/chunks/
+dep-BMIURPaQ.js:43601
+:27)[39m
