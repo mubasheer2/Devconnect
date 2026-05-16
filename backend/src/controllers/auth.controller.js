@@ -22,10 +22,10 @@ export async function signup(req, res) {
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ message: "Email already exists, please use a diffrent one" });
+      return res.status(400).json({ message: "Email already exists, please use a different one" });
     }
 
-    const idx = Math.floor(Math.random() * 100) + 1; // generate a num between 1-100
+    const idx = Math.floor(Math.random() * 100) + 1;
     const randomAvatar = `https://avatar.iran.liara.run/public/${idx}.png`;
 
     const newUser = await User.create({
@@ -52,9 +52,9 @@ export async function signup(req, res) {
 
     res.cookie("jwt", token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly: true, // prevent XSS attacks,
-      sameSite: "strict", // prevent CSRF attacks
-      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      sameSite: "none",  // ✅ Fix: cross-origin cookies ke liye
+      secure: true,      // ✅ Fix: "none" ke saath hamesha true
     });
 
     res.status(201).json({ success: true, user: newUser });
@@ -84,9 +84,9 @@ export async function login(req, res) {
 
     res.cookie("jwt", token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly: true, // prevent XSS attacks,
-      sameSite: "strict", // prevent CSRF attacks
-      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      sameSite: "none",  // ✅ Fix: cross-origin cookies ke liye
+      secure: true,      // ✅ Fix: "none" ke saath hamesha true
     });
 
     res.status(200).json({ success: true, user });
@@ -97,7 +97,10 @@ export async function login(req, res) {
 }
 
 export function logout(req, res) {
-  res.clearCookie("jwt");
+  res.clearCookie("jwt", {
+    sameSite: "none",  // ✅ Fix: clear cookie bhi same options se
+    secure: true,
+  });
   res.status(200).json({ success: true, message: "Logout successful" });
 }
 
@@ -113,7 +116,6 @@ export const onboard = async (req, res) => {
       primaryTech,
     } = req.body;
 
-    // ✅ normalize
     fullName = fullName?.trim();
     bio = bio?.trim();
     location = location?.trim();
@@ -122,12 +124,10 @@ export const onboard = async (req, res) => {
     domain = domain?.trim();
     primaryTech = primaryTech?.trim();
 
-    // ✅ validation
     if (!fullName || !location || !profilePic || !gender || !domain || !primaryTech) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // optional gender enum
     const allowedGender = ["male", "female", "other"];
     if (!allowedGender.includes(gender)) {
       return res.status(400).json({ message: "Invalid gender" });
