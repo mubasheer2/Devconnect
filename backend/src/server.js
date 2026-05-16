@@ -16,8 +16,14 @@ const PORT = process.env.PORT || 5001;
 
 app.use(
   cors({
-    origin: ["https://devconnect.vercel.app"], // apna actual vercel url daal
+    origin: [
+      "http://localhost:5173",
+      "https://devconnect-wheat.vercel.app",
+      "https://devconnect-git-main-mubasheer2s-projects.vercel.app",
+    ],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
