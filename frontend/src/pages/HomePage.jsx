@@ -19,7 +19,6 @@ import {
   Gamepad2Icon,
   PuzzleIcon,
   RocketIcon,
-  SparklesIcon,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -105,13 +104,13 @@ const HomePage = () => {
   }, [outgoingFriendReqs]);
 
   return (
-    <div className="min-h-screen bg-[#070b14] text-white px-6 lg:px-12 py-10 space-y-24">
+    <div className="min-h-screen overflow-x-hidden bg-[#070b14] text-white px-4 sm:px-6 lg:px-12 py-6 sm:py-10 space-y-16 sm:space-y-24">
 
       {/* ================= HERO ================= */}
-      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0b1220] via-[#070b14] to-[#020617] p-14">
+      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0b1220] via-[#070b14] to-[#020617] p-6 sm:p-10 lg:p-14">
 
-        <div className="absolute -top-40 -left-40 w-[420px] h-[420px] bg-cyan-500/30 blur-[140px]" />
-        <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-purple-600/30 blur-[140px]" />
+        <div className="absolute -top-40 -left-40 w-[240px] h-[240px] sm:w-[420px] sm:h-[420px] bg-cyan-500/30 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[240px] h-[240px] sm:w-[420px] sm:h-[420px] bg-purple-600/30 blur-[120px]" />
 
         <motion.div
           initial="hidden"
@@ -120,35 +119,34 @@ const HomePage = () => {
           className="relative z-10 max-w-3xl"
         >
           <div className="flex items-center gap-2 text-cyan-400 mb-4">
-           
-            <span className="text-xs tracking-[0.3em] font-semibold">
-              DEVCONNECT 
+            <span className="text-[10px] sm:text-xs tracking-[0.3em] font-semibold">
+              DEVCONNECT
             </span>
           </div>
 
-          <h1 className="text-5xl font-bold leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
             The Social Platform for{" "}
             <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
               Developers
             </span>
           </h1>
 
-          <p className="text-gray-400 text-lg mb-8">
+          <p className="text-gray-400 text-base sm:text-lg mb-8">
             Practice with AI, collaborate in realtime, compete in coding games
             and connect with developers worldwide.
           </p>
 
-          <div className="flex gap-4">
-           <a
-  href="#services"
-  className="px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition font-medium"
->
-  Explore Services
-</a>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="#services"
+              className="w-full sm:w-auto text-center px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition font-medium"
+            >
+              Explore Services
+            </a>
 
             <Link
               to="/code-editor/"
-              className="px-8 py-3 rounded-xl border border-purple-500 hover:bg-purple-600/20 transition"
+              className="w-full sm:w-auto text-center px-8 py-3 rounded-xl border border-purple-500 hover:bg-purple-600/20 transition"
             >
               Start Coding
             </Link>
@@ -163,12 +161,12 @@ const HomePage = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-3xl font-bold mb-12"
+          className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12"
         >
           Developer Tools
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
           {coreServices.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -182,17 +180,18 @@ const HomePage = () => {
               >
                 <Link
                   to={s.link}
-                  className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-7 hover:border-cyan-400/40 hover:-translate-y-2 transition"
+                  className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-5 sm:p-7 hover:border-cyan-400/40 hover:-translate-y-2 transition"
                 >
-                  {/* inner dev tool style */}
                   <div className="flex items-center justify-between mb-6">
-                    <Icon className="size-9 text-cyan-400 group-hover:scale-110 transition" />
+                    <Icon className="size-8 sm:size-9 text-cyan-400 group-hover:scale-110 transition" />
+
                     <span className="text-[10px] px-2 py-1 rounded bg-cyan-500/10 text-cyan-300">
                       TOOL
                     </span>
                   </div>
 
                   <h3 className="font-semibold text-lg mb-1">{s.title}</h3>
+
                   <p className="text-sm text-gray-400">{s.desc}</p>
                 </Link>
               </motion.div>
@@ -208,14 +207,15 @@ const HomePage = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="text-3xl font-bold mb-12"
+          className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12"
         >
           Developer Games
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
           {games.map((g, i) => {
             const Icon = g.icon;
+
             return (
               <motion.div
                 key={g.title}
@@ -227,10 +227,11 @@ const HomePage = () => {
               >
                 <Link
                   to={g.link}
-                  className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-7 hover:border-purple-400/40 hover:-translate-y-2 transition"
+                  className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-5 sm:p-7 hover:border-purple-400/40 hover:-translate-y-2 transition"
                 >
                   <div className="flex items-center justify-between mb-6">
-                    <Icon className="size-9 text-purple-400 group-hover:scale-110 transition" />
+                    <Icon className="size-8 sm:size-9 text-purple-400 group-hover:scale-110 transition" />
+
                     <span className="text-[10px] px-2 py-1 rounded bg-purple-500/10 text-purple-300">
                       GAME
                     </span>
@@ -246,9 +247,13 @@ const HomePage = () => {
 
       {/* ================= FRIENDS ================= */}
       <section>
-        <div className="flex justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <h2 className="text-2xl font-bold">Your Friends</h2>
-          <Link to="/notifications" className="btn btn-outline btn-sm">
+
+          <Link
+            to="/notifications"
+            className="btn btn-outline btn-sm w-full sm:w-auto"
+          >
             <UsersIcon className="mr-2 size-4" />
             Requests
           </Link>
@@ -261,7 +266,7 @@ const HomePage = () => {
         ) : friends.length === 0 ? (
           <NoFriendsFound />
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
             {friends.map((f) => (
               <FriendCard key={f._id} friend={f} />
             ))}
@@ -278,7 +283,7 @@ const HomePage = () => {
             <span className="loading loading-spinner loading-lg" />
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {recommendedUsers.map((user) => {
               const sent = outgoingRequestsIds.has(user._id);
 
@@ -290,25 +295,32 @@ const HomePage = () => {
                   <div className="flex items-center gap-3 mb-3">
                     <img
                       src={user.profilePic}
-                      className="size-14 rounded-full"
+                      alt={user.fullName}
+                      className="size-14 rounded-full object-cover"
                     />
-                    <div>
-                      <h3 className="font-semibold">{user.fullName}</h3>
+
+                    <div className="min-w-0">
+                      <h3 className="font-semibold truncate">
+                        {user.fullName}
+                      </h3>
+
                       {user.location && (
-                        <div className="flex text-xs opacity-70">
-                          <MapPinIcon className="size-3 mr-1" />
-                          {user.location}
+                        <div className="flex items-center text-xs opacity-70 truncate">
+                          <MapPinIcon className="size-3 mr-1 shrink-0" />
+                          <span className="truncate">{user.location}</span>
                         </div>
                       )}
                     </div>
                   </div>
 
                   {user.bio && (
-                    <p className="text-sm opacity-70 mb-3">{user.bio}</p>
+                    <p className="text-sm opacity-70 mb-3 break-words">
+                      {user.bio}
+                    </p>
                   )}
 
                   <button
-                    className={`btn w-full ${
+                    className={`btn w-full text-sm sm:text-base ${
                       sent ? "btn-disabled" : "btn-primary"
                     }`}
                     onClick={() => sendRequestMutation(user._id)}
