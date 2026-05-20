@@ -35,7 +35,7 @@ const coreServices = [
     title: "AI vs Human",
     desc: "Battle AI in coding challenges",
     icon: CpuIcon,
-    link: "/code-duel/",
+    link: "https://code-duel-76rwi6rbx-mubasheer2s-projects.vercel.app/",
   },
   {
     title: "AI Mock Interview",
