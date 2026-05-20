@@ -197,10 +197,12 @@ const HomePage = () => {
                 whileInView="show"
                 viewport={{ once: true }}
               >
-                <Link
-                  to={s.link}
-                  className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-5 sm:p-7 hover:border-cyan-400/40 hover:-translate-y-2 transition"
-                >
+               <a
+  href={s.link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-5 sm:p-7 hover:border-cyan-400/40 hover:-translate-y-2 transition"
+>
                   <div className="flex items-center justify-between mb-6">
 
                     <Icon className="size-8 sm:size-9 text-cyan-400 group-hover:scale-110 transition" />
@@ -217,7 +219,7 @@ const HomePage = () => {
                   <p className="text-sm text-gray-400">
                     {s.desc}
                   </p>
-                </Link>
+                </a>
               </motion.div>
             );
           })}
