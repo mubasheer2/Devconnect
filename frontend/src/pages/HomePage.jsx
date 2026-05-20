@@ -186,43 +186,65 @@ const HomePage = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
 
           {coreServices.map((s, i) => {
-            const Icon = s.icon;
+  const Icon = s.icon;
 
-            return (
-              <motion.div
-                key={s.title}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-              >
-               <a
-  href={s.link}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-5 sm:p-7 hover:border-cyan-400/40 hover:-translate-y-2 transition"
->
-                  <div className="flex items-center justify-between mb-6">
+  return (
+    <motion.div
+      key={s.title}
+      custom={i}
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
+      {s.link.startsWith("http") ? (
+        <a
+          href={s.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-5 sm:p-7 hover:border-cyan-400/40 hover:-translate-y-2 transition"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <Icon className="size-8 sm:size-9 text-cyan-400 group-hover:scale-110 transition" />
 
-                    <Icon className="size-8 sm:size-9 text-cyan-400 group-hover:scale-110 transition" />
+            <span className="text-[10px] px-2 py-1 rounded bg-cyan-500/10 text-cyan-300">
+              TOOL
+            </span>
+          </div>
 
-                    <span className="text-[10px] px-2 py-1 rounded bg-cyan-500/10 text-cyan-300">
-                      TOOL
-                    </span>
-                  </div>
+          <h3 className="font-semibold text-lg mb-1">
+            {s.title}
+          </h3>
 
-                  <h3 className="font-semibold text-lg mb-1">
-                    {s.title}
-                  </h3>
+          <p className="text-sm text-gray-400">
+            {s.desc}
+          </p>
+        </a>
+      ) : (
+        <Link
+          to={s.link}
+          className="group block rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-5 sm:p-7 hover:border-cyan-400/40 hover:-translate-y-2 transition"
+        >
+          <div className="flex items-center justify-between mb-6">
+            <Icon className="size-8 sm:size-9 text-cyan-400 group-hover:scale-110 transition" />
 
-                  <p className="text-sm text-gray-400">
-                    {s.desc}
-                  </p>
-                </a>
-              </motion.div>
-            );
-          })}
+            <span className="text-[10px] px-2 py-1 rounded bg-cyan-500/10 text-cyan-300">
+              TOOL
+            </span>
+          </div>
+
+          <h3 className="font-semibold text-lg mb-1">
+            {s.title}
+          </h3>
+
+          <p className="text-sm text-gray-400">
+            {s.desc}
+          </p>
+        </Link>
+      )}
+    </motion.div>
+  );
+})}
         </div>
       </section>
 
